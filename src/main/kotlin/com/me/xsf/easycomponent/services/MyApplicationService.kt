@@ -1,6 +1,7 @@
-package org.jetbrains.plugins.template.services
+package com.me.xsf.easycomponent.services
 
-import org.jetbrains.plugins.template.MyBundle
+import com.me.xsf.easycomponent.MyBundle
+
 
 class MyApplicationService {
 
