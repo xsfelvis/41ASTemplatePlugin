@@ -10,8 +10,10 @@ import com.intellij.psi.PsiFileFactory
 import com.intellij.psi.PsiManager
 import com.me.xsf.easycomponent.listeners.MyProjectManagerListener.Companion.projectInstance
 import org.jetbrains.kotlin.idea.KotlinLanguage
+import other.easycomponet.setup.simpleLayout
 import other.easycomponet.setup.someActivity
 import other.easycomponet.setup.someActivityLayout
+import java.io.File
 
 fun RecipeExecutor.easyComponentSetup(
 //    moduleData: ModuleTemplateData,
@@ -34,5 +36,7 @@ fun RecipeExecutor.easyComponentSetup(
         hasNoActionBar = true,
         generateActivityTitle = true,
     )
+    save(simpleLayout(provider), File(data.resDir,"layout/${provider.layoutName.value}.xml" ))
 
-  }
+
+}

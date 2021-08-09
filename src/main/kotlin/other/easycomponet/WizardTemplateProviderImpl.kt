@@ -20,9 +20,10 @@ class WizardTemplateProviderImpl  : WizardTemplateProvider() {
                 WizardUiContext.NewProject, WizardUiContext.NewModule)
 
             widgets(
-//                TextFieldWidget(componentViewContractName),
+                PackageNameWidget(packageName),
                 TextFieldWidget(layoutName),
-                PackageNameWidget(packageName)
+                //TextFieldWidget(componentViewContractName),
+
             )
 
             recipe = { data: TemplateData ->
