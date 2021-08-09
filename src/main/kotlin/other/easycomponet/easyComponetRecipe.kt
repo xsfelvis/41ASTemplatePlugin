@@ -24,7 +24,7 @@ fun RecipeExecutor.easyComponentSetup(
 
     addAllKotlinDependencies(data)
 
-     val activityClass = "${provider.entityName.value}sActivity"
+     val activityClass = "${provider.layoutName.value}sActivity"
     // This will generate new manifest (with activity) to merge it with existing
     generateManifest(
         data,
