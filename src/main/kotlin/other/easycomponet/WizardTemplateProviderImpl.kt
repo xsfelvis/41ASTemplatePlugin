@@ -22,20 +22,18 @@ class WizardTemplateProviderImpl  : WizardTemplateProvider() {
             widgets(
                 TextFieldWidget(entityName),
                 TextFieldWidget(layoutName),
-                PackageNameWidget(packageNameParam)
+                PackageNameWidget(packageName)
             )
 
             recipe = { data: TemplateData ->
                 easyComponentSetup(
-                    data as ModuleTemplateData,
-                    packageNameParam.value,
-                    entityName.value,
-                    layoutName.value
+                    this@WizardTemplateProviderImpl,
+                    data as ModuleTemplateData
                 )
             }
         }
 
-    val packageNameParam = stringParameter {
+    val packageName = stringParameter {
         name = "Package name"
         visible = { !isNewModule }
         default = "com.mycompany.myapp"
