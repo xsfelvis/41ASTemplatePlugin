@@ -4,7 +4,7 @@ import other.easycomponet.WizardTemplateProviderImpl
 
 
 fun viewContract(provider: WizardTemplateProviderImpl) = """
-package ${provider.appPackageName.value}
+package ${provider.contractPackageName.value}
 
 
 import com.dev.xsf.easycomponent.IView

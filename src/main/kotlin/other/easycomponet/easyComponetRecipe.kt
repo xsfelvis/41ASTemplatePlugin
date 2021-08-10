@@ -24,6 +24,12 @@ fun RecipeExecutor.easyComponentSetup(
         "${fFmSlashedPackageName(provider.contractPackageName.value)}/${provider.componentName.value}.kt"
     )
     save(viewContract(provider), contractFile)
+    //presenter
+    val presenterFile = File(
+        data.rootDir,
+        "${fFmSlashedPackageName(provider.presenterPackageName.value)}/${provider.componentName.value}.kt"
+    )
+    save(viewContract(provider), presenterFile)
 
 }
 

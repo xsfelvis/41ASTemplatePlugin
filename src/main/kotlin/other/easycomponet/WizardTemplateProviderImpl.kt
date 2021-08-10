@@ -24,6 +24,7 @@ class WizardTemplateProviderImpl : WizardTemplateProvider() {
                 PackageNameWidget(appPackageName),
                 TextFieldWidget(appPackageName),
                 TextFieldWidget(contractPackageName),
+                TextFieldWidget(presenterPackageName),
                 TextFieldWidget(componentName),
                 TextFieldWidget(layoutName),
                 //TextFieldWidget(componentViewContractName),
@@ -63,9 +64,17 @@ class WizardTemplateProviderImpl : WizardTemplateProvider() {
     val contractPackageName = stringParameter {
         name = "Contract Package Name"
         constraints = listOf(Constraint.STRING)
-        default = "${appPackageName.value}.contract"
-        suggest = { "${appPackageName.value}.contract" }
+        default = "${appPackageName.value}.component${componentName.value}.contract"
+        suggest = { "${appPackageName.value}.component${componentName.value}.contract" }
         help = "Contract 将被输出到此包下,请认真核实此包名是否是你需要输出的目标包名"
+    }
+
+    val presenterPackageName = stringParameter {
+        name = "Presenter Package Name"
+        constraints = listOf(Constraint.STRING)
+        default = "${appPackageName.value}.component${componentName.value}.presenter"
+        suggest = { "${appPackageName.value}.component${componentName.value}.presenter" }
+        help = "Preseenter 将被输出到此包下,请认真核实此包名是否是你需要输出的目标包名"
     }
 
 
