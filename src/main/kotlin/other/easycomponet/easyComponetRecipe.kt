@@ -3,11 +3,7 @@ package other.easycomponet
 import com.android.tools.idea.wizard.template.ModuleTemplateData
 import com.android.tools.idea.wizard.template.RecipeExecutor
 import com.android.tools.idea.wizard.template.impl.activities.common.addAllKotlinDependencies
-import com.android.tools.idea.wizard.template.impl.activities.common.generateManifest
-import com.me.xsf.easycomponent.listeners.MyProjectManagerListener.Companion.projectInstance
-import other.easycomponet.setup.simpleLayout
-import other.easycomponet.setup.viewContract
-import other.easycomponet.setup.viewTemp
+import other.easycomponet.setup.*
 import java.io.File
 
 fun RecipeExecutor.easyComponentSetup(
@@ -18,18 +14,32 @@ fun RecipeExecutor.easyComponentSetup(
 
     //layout
     save(simpleLayout(provider), File(data.resDir, "layout/${provider.layoutName.value}.xml"))
-    //view contract
+    //view interface
     val contractFile = File(
         data.rootDir,
         "${fFmSlashedPackageName(provider.viewPackageName.value)}/I${provider.componentName.value}View.kt"
     )
-    save(viewContract(provider), contractFile)
-    //presenter
-    val presenterFile = File(
+    save(viewInterface(provider), contractFile)
+    //view impl
+    val viewImplFile = File(
         data.rootDir,
         "${fFmSlashedPackageName(provider.viewPackageName.value)}/${provider.componentName.value}View.kt"
     )
-    save(viewTemp(provider), presenterFile)
+    save(viewTemp(provider), viewImplFile)
+
+    //presenter interface
+    val presenterInterfaceFile = File(
+        data.rootDir,
+        "${fFmSlashedPackageName(provider.presenterPackageName.value)}/I${provider.componentName.value}Presenter.kt"
+    )
+    save(presenterInterface(provider), presenterInterfaceFile)
+
+    //presenterImpl
+    val presenterImplFile = File(
+        data.rootDir,
+        "${fFmSlashedPackageName(provider.presenterPackageName.value)}/${provider.componentName.value}Presenter.kt"
+    )
+    save(presenterImpl(provider), presenterImplFile)
 
 }
 

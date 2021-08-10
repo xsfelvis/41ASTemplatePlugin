@@ -21,13 +21,12 @@ class WizardTemplateProviderImpl : WizardTemplateProvider() {
             )
 
             widgets(
+                PackageNameWidget(appPackageName),
                 TextFieldWidget(componentName),
                 TextFieldWidget(layoutName),
-                TextFieldWidget(appPackageName),
+//                TextFieldWidget(appPackageName),
                 TextFieldWidget(viewPackageName),
                 TextFieldWidget(presenterPackageName),
-                PackageNameWidget(appPackageName)
-                //TextFieldWidget(componentViewContractName),
 
             )
 

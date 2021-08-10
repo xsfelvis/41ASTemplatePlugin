@@ -3,7 +3,7 @@ package other.easycomponet.setup
 import other.easycomponet.WizardTemplateProviderImpl
 
 
-fun viewContract(provider: WizardTemplateProviderImpl) = """
+fun viewInterface(provider: WizardTemplateProviderImpl) = """
 package ${provider.viewPackageName.value}
 
 
