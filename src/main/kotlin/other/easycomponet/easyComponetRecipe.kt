@@ -7,12 +7,12 @@ import com.android.tools.idea.wizard.template.impl.activities.common.generateMan
 import com.me.xsf.easycomponent.listeners.MyProjectManagerListener.Companion.projectInstance
 import other.easycomponet.setup.simpleLayout
 import other.easycomponet.setup.viewContract
+import other.easycomponet.setup.viewTemp
 import java.io.File
 
 fun RecipeExecutor.easyComponentSetup(
     provider: WizardTemplateProviderImpl, data: ModuleTemplateData
 ) {
-    val project = projectInstance ?: return
 
     addAllKotlinDependencies(data)
 
@@ -21,15 +21,15 @@ fun RecipeExecutor.easyComponentSetup(
     //view contract
     val contractFile = File(
         data.rootDir,
-        "${fFmSlashedPackageName(provider.contractPackageName.value)}/${provider.componentName.value}.kt"
+        "${fFmSlashedPackageName(provider.viewPackageName.value)}/I${provider.componentName.value}View.kt"
     )
     save(viewContract(provider), contractFile)
     //presenter
     val presenterFile = File(
         data.rootDir,
-        "${fFmSlashedPackageName(provider.presenterPackageName.value)}/${provider.componentName.value}.kt"
+        "${fFmSlashedPackageName(provider.viewPackageName.value)}/${provider.componentName.value}View.kt"
     )
-    save(viewContract(provider), presenterFile)
+    save(viewTemp(provider), presenterFile)
 
 }
 

@@ -4,13 +4,13 @@ import other.easycomponet.WizardTemplateProviderImpl
 
 
 fun viewContract(provider: WizardTemplateProviderImpl) = """
-package ${provider.contractPackageName.value}
+package ${provider.viewPackageName.value}
 
 
 import com.dev.xsf.easycomponent.IView
 
 
-interface ${provider.componentName.value}:IView{
+interface I${provider.componentName.value}View:IView{
     
 
 }    

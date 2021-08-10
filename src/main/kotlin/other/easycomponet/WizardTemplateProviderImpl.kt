@@ -10,7 +10,7 @@ class WizardTemplateProviderImpl : WizardTemplateProvider() {
 
     private val mviSetupTemplate
         get() = template {
-            name = "Easy Component with Activity"
+            name = "Easy Component Scaffold"
             description = "Creates a new activity along layout file."
             minApi = MIN_API
             category = Category.Other // Check other categories
@@ -21,12 +21,12 @@ class WizardTemplateProviderImpl : WizardTemplateProvider() {
             )
 
             widgets(
-                PackageNameWidget(appPackageName),
-                TextFieldWidget(appPackageName),
-                TextFieldWidget(contractPackageName),
-                TextFieldWidget(presenterPackageName),
                 TextFieldWidget(componentName),
                 TextFieldWidget(layoutName),
+                TextFieldWidget(appPackageName),
+                TextFieldWidget(viewPackageName),
+                TextFieldWidget(presenterPackageName),
+                PackageNameWidget(appPackageName)
                 //TextFieldWidget(componentViewContractName),
 
             )
@@ -61,11 +61,11 @@ class WizardTemplateProviderImpl : WizardTemplateProvider() {
         help = "请填写页面名,如填写 One,会自动生成 OneView, OnePresenter 等文件"
     }
 
-    val contractPackageName = stringParameter {
+    val viewPackageName = stringParameter {
         name = "Contract Package Name"
         constraints = listOf(Constraint.STRING)
-        default = "${appPackageName.value}.component${componentName.value}.contract"
-        suggest = { "${appPackageName.value}.component${componentName.value}.contract" }
+        default = "${appPackageName.value}.component${componentName.value}.view"
+        suggest = { "${appPackageName.value}.component${componentName.value}.view" }
         help = "Contract 将被输出到此包下,请认真核实此包名是否是你需要输出的目标包名"
     }
 
