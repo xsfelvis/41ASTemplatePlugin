@@ -41,6 +41,13 @@ fun RecipeExecutor.easyComponentSetup(
     )
     save(presenterImpl(provider), presenterImplFile)
 
+    //component
+    val componentFile = File(
+        data.rootDir,
+        "${fFmSlashedPackageName(provider.appPackageName.value)}/component${provider.componentName.value}/${provider.componentName.value}Component.kt"
+    )
+    save(componentTemp(provider), componentFile)
+
 }
 
 fun fFmSlashedPackageName(oVar: String): String {
